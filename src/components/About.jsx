@@ -1,0 +1,83 @@
+import { Mail, MapPin, User, Briefcase } from "lucide-react";
+
+const About = () => {
+  return (
+    <section className="min-h-screen w-full bg-[#020617] text-white px-6 py-20 rounded-lg">
+      {/* Heading */}
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h2 className="text-4xl font-bold mb-4">About Me</h2>
+        <p className="text-gray-400 text-lg">
+          A dedicated developer focused on developing scalable web and mobile
+          solutions using MERN, Three.js, and Flutter.
+        </p>
+      </div>
+
+      {/* Content */}
+      <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-3 gap-10">
+        {/* Left Card */}
+        <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
+          <div className="flex flex-col items-center text-center">
+            <div className="w-28 h-28 rounded-full border-4 border-white/20 flex items-center justify-center mb-4">
+              <User size={48} />
+            </div>
+
+            <h3 className="text-2xl font-semibold">Nikhil B. Namade</h3>
+            <p className="text-indigo-400 mt-1">Software Developer</p>
+          </div>
+
+          <div className="mt-8 space-y-4 text-gray-300 text-sm">
+            <div className="flex items-center gap-3">
+              <MapPin size={18} />
+              <span>Chembur, Mumbai</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Mail size={18} />
+              <span>nikhilnamade39@gmail.com</span>
+            </div>
+
+            <div className="flex items-center gap-3">
+              <Briefcase size={18} />
+              <span>Fresher</span>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Content */}
+        <div className="lg:col-span-2 bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-10">
+          <h3 className="text-2xl font-semibold mb-6">About My Journey</h3>
+
+          <p className="text-gray-300 leading-relaxed mb-5">
+            Hello! I am{" "}
+            <span className="text-white font-medium">Nikhil Namade</span>, a
+            passionate full-stack developer eager to begin my professional
+            journey in the tech industry. I enjoy building clean, efficient, and
+            scalable solutions while continuously learning and improving my
+            skills.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed mb-5">
+            I work with the{" "}
+            <span className="text-white font-medium">MERN stack</span> to
+            develop modern web applications, create immersive and interactive
+            experiences using{" "}
+            <span className="text-white font-medium">Three.js</span>, and build
+            cross-platform mobile applications with
+            <span className="text-white font-medium"> Flutter</span>. My focus
+            is on delivering smooth user experiences, clean code, and
+            well-structured architectures.
+          </p>
+
+          <p className="text-gray-300 leading-relaxed">
+            I am actively seeking opportunities where I can apply my academic
+            knowledge, project experience, and problem-solving skills in a
+            professional environment while contributing to impactful real-world
+            products.
+          </p>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default About;
