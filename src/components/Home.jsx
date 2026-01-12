@@ -1,10 +1,13 @@
 import { Canvas } from "@react-three/fiber";
 import Desktop_PC from "../pages/DesktopPC.jsx";
+import { Suspense } from "react";
 const Home = () => {
   return (
     <div className={`w-full h-screen relative`}>
-      <Canvas id="canvas">
-        <Desktop_PC />
+      <Canvas frameloop="demand" dpr={1} gl={{ antialias: false }} camera={{ position: [0, 0, 6], fov: 50 }}>
+        <Suspense fallback={null}>
+          <Desktop_PC />
+        </Suspense>
       </Canvas>
       <div className="z-10  flex items-center absolute top-[100px] left-0">
         <div className="ml-16 flex gap-6">

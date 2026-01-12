@@ -5,7 +5,7 @@ import Leading from "./components/Leading.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Skills from "./components/Skills.jsx";
 import Work from "./components/Work.jsx";
-import { useRef } from "react";
+import { Suspense, useRef } from "react";
 import ContactForm from "./components/ContactForm.jsx";
 import Planet from "./pages/Planet.jsx";
 import { Canvas } from "@react-three/fiber";
@@ -34,8 +34,10 @@ const App = () => {
 
       {/* THREE.JS BACKGROUND */}
       <div className="fixed inset-0 z-0 pointer-events-none">
-        <Canvas camera={{ position: [0, 0, 6], fov: 45 }}>
-          <Planet />
+        <Canvas camera={{ position: [0, 0, 6], fov: 45 }} frameloop="demand" dpr={1} gl={{ antialias: false }}>
+          <Suspense fallback={null}>
+            <Planet />
+          </Suspense>
         </Canvas>
       </div>
 

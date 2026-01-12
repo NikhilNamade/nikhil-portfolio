@@ -1,12 +1,11 @@
 import { useGLTF } from "@react-three/drei";
-import { useFrame, useThree } from "@react-three/fiber";
+import { useFrame} from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 
 const DesktopPC = () => {
   const model = useGLTF("/desktop_pc/scene.gltf");
   const ref = useRef();
-  const { mouse } = useThree();
 
   // Base rotation (important!)
   const baseRotation = useRef({
@@ -15,25 +14,28 @@ const DesktopPC = () => {
     z: -0.1,
   });
 
-  useFrame(() => {
-    if (!ref.current) return;
+useFrame(({ mouse,invalidate }) => {
+  if (!ref.current) return;
+  invalidate();
+  const mx = mouse?.x ?? 0;
+  const my = mouse?.y ?? 0;
 
-    // VERY small offsets
-    const offsetY = mouse.x * 0.06;
-    const offsetX = mouse.y * 0.04;
+  const offsetY = mx * 0.06;
+  const offsetX = my * 0.04;
 
-    ref.current.rotation.y = THREE.MathUtils.lerp(
-      ref.current.rotation.y,
-      baseRotation.current.y + offsetY,
-      0.09
-    );
+  ref.current.rotation.y = THREE.MathUtils.lerp(
+    ref.current.rotation.y,
+    baseRotation.current.y + offsetY,
+    0.09
+  );
 
-    ref.current.rotation.x = THREE.MathUtils.lerp(
-      ref.current.rotation.x,
-      baseRotation.current.x + offsetX,
-      0.09
-    );
-  });
+  ref.current.rotation.x = THREE.MathUtils.lerp(
+    ref.current.rotation.x,
+    baseRotation.current.x + offsetX,
+    0.09
+  );
+});
+
 
   return (
     <>
@@ -43,7 +45,6 @@ const DesktopPC = () => {
         angle={0.12}
         penumbra={1}
         intensity={10}
-        castShadow
       />
       <pointLight intensity={5} />
 
