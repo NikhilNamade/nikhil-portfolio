@@ -13,20 +13,18 @@ const ContactForm = () => {
 
     emailjs
       .sendForm(
-        "service_9z7j54l",    // Replace with your EmailJS Service ID
-        "template_vj3rpmy",   // Replace with your EmailJS Template ID
+        "service_9z7j54l",
+        "template_vj3rpmy",
         form.current,
-        "gTxw6jLYP9gq03_Y_"     // Replace with your EmailJS Public Key
+        "gTxw6jLYP9gq03_Y_"
       )
       .then(
-        (result) => {
-          console.log(result.text);
+        () => {
           setLoading(false);
           setSuccess("Message sent successfully!");
           form.current.reset();
         },
-        (error) => {
-          console.log(error.text);
+        () => {
           setLoading(false);
           setSuccess("Failed to send message. Please try again.");
         }
@@ -34,22 +32,36 @@ const ContactForm = () => {
   };
 
   return (
-    <div className="w-1/2 h-screen text-white flex items-center justify-center">
+    <div
+      className="
+        w-full
+        lg:w-1/2
+        min-h-screen
+        text-white
+        flex
+        items-center
+        justify-center
+        px-4 sm:px-6
+      "
+    >
       <form
         ref={form}
         onSubmit={sendEmail}
         className="
-          w-full max-w-md
+          w-full
+          max-w-md
           bg-white/10
           backdrop-blur-md
           border border-white/20
           rounded-2xl
-          p-6
+          p-6 sm:p-8
           text-white
           space-y-5
         "
       >
-        <h1 className="font-bold text-4xl text-center">Contact Us</h1>
+        <h1 className="font-bold text-3xl sm:text-4xl text-center">
+          Contact Us
+        </h1>
 
         {/* EMAIL */}
         <div className="flex flex-col gap-2">
@@ -117,7 +129,9 @@ const ContactForm = () => {
 
         {/* SUCCESS MESSAGE */}
         {success && (
-          <p className="text-center text-green-400 font-medium">{success}</p>
+          <p className="text-center text-green-400 font-medium">
+            {success}
+          </p>
         )}
       </form>
     </div>

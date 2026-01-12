@@ -1,5 +1,13 @@
 import { Github, ExternalLink, Clock } from "lucide-react";
-import { _3dWebsite, alumconnect, ecoomerce, eventapp, imageeditor, portfoliogen, railwayconcession } from "../assets/index.js";
+import {
+  _3dWebsite,
+  alumconnect,
+  ecoomerce,
+  eventapp,
+  imageeditor,
+  portfoliogen,
+  railwayconcession,
+} from "../assets/index.js";
 
 const Work = () => {
   const projects = [
@@ -28,7 +36,7 @@ const Work = () => {
       description:
         "The Railway Concession System is a web-based application that digitizes the student railway concession process by enabling online applications, verification, and approval, reducing paperwork and improving efficiency.",
       image: railwayconcession,
-      tech: ["ReactJS","NodeJS","ExpressJS","MongoDB","Cloudinary"],
+      tech: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Cloudinary"],
       github: "https://github.com/NikhilNamade/railway.git",
       demo: "https://railway-concession-system.onrender.com/",
       status: true,
@@ -38,7 +46,7 @@ const Work = () => {
       description:
         "A dynamic portfolio generator built with modern web technologies that transforms user input into a responsive, template-based portfolio. Features include real-time preview, reusable components, and customizable sections for projects, skills, and experience.",
       image: portfoliogen,
-      tech: ["ReactJS","NodeJS","ExpressJS","MongoDB","Cloudinary"],
+      tech: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Cloudinary"],
       github: "https://github.com/NikhilNamade/portfolio-generator.git",
       demo: "https://portfolio-generator-lemon-three.vercel.app/",
       status: true,
@@ -48,7 +56,7 @@ const Work = () => {
       description:
         "A modern color grading web application developed using HTML5 Canvas API. The project focuses on real-time color manipulation, smooth UI interactions, and accurate image rendering to deliver professional-grade color adjustment tools in the browser.",
       image: imageeditor,
-      tech: ["HTML5","TailwindCss","JavaScript","Canvas-API"],
+      tech: ["HTML5", "TailwindCss", "JavaScript", "Canvas-API"],
       github: "https://github.com/NikhilNamade/imageEditor.git",
       demo: "https://image-editor-roan-psi.vercel.app/",
       status: true,
@@ -56,9 +64,9 @@ const Work = () => {
     {
       title: "Sort My Events",
       description:
-        "A cross-platform Flutter application with a Go backend implementing RESTful APIs for event CRUD operations, user registration, and organizer interaction. Features include user-organizer follow system, event registration, organizer stories, and map-based event discovery using location services. The app leverages Flutter for UI, Go for performant backend services, and integrates real-time updates for interactive event management.",
+        "A cross-platform Flutter application with a Go backend implementing RESTful APIs for event CRUD operations, user registration, and organizer interaction.",
       image: eventapp,
-      tech: ["Flutter","Go","REST API","Maps SDK"],
+      tech: ["Flutter", "Go", "REST API", "Maps SDK"],
       github: "https://github.com/NikhilNamade/gorestapi.git",
       demo: "",
       status: true,
@@ -66,9 +74,9 @@ const Work = () => {
     {
       title: "Shop Your Choice",
       description:
-        "A full-stack e-commerce platform with a responsive website and Flutter mobile app. Users can browse products, manage carts, checkout, and track orders. The admin panel allows management of products, orders, users, and analytics, while the backend handles all CRUD operations via REST APIs.",
+        "A full-stack e-commerce platform with a responsive website and Flutter mobile app supporting product browsing, checkout, and admin management.",
       image: ecoomerce,
-      tech: ["ReactJS","NodeJS","ExpressJS","MongoDB","Cloudinary","Flutter"],
+      tech: ["ReactJS", "NodeJS", "ExpressJS", "MongoDB", "Cloudinary", "Flutter"],
       github: "https://github.com/NikhilNamade/gorestapi.git",
       demo: "",
       status: false,
@@ -76,34 +84,64 @@ const Work = () => {
   ];
 
   return (
-    <div className="w-full bg-[#020617] flex flex-col items-center px-6 py-20 text-white">
-      <h2 className="text-4xl font-bold mb-10 text-center">Work</h2>
+    <section
+      className="
+        w-full
+        bg-[#020617]
+        flex
+        flex-col
+        items-center
+        px-4 sm:px-6
+        py-16 sm:py-20
+        text-white
+      "
+    >
+      {/* Heading */}
+      <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10 text-center">
+        Work
+      </h2>
 
-      {/* Grid container for responsiveness */}
-      <div className="grid gap-8 w-full
-                      grid-cols-1
-                      sm:grid-cols-2
-                      lg:grid-cols-3">
+      {/* Grid */}
+      <div
+        className="
+          grid
+          gap-6 sm:gap-8
+          w-full
+          grid-cols-1
+          sm:grid-cols-2
+          lg:grid-cols-3
+        "
+      >
         {projects.map((project, index) => (
           <ProjectCard key={index} project={project} />
         ))}
       </div>
-    </div>
+    </section>
   );
 };
 
 const ProjectCard = ({ project }) => {
   return (
-    <div className="bg-[#0b1220] rounded-2xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-300 hover:-translate-y-2">
+    <div
+      className="
+        bg-[#0b1220]
+        rounded-2xl
+        overflow-hidden
+        shadow-lg
+        transition-all
+        duration-300
+        hover:shadow-2xl
+        hover:-translate-y-2
+      "
+    >
       {/* Image */}
-      <div className="w-full h-48 overflow-hidden relative">
+      <div className="w-full h-40 sm:h-48 overflow-hidden relative">
         <img
           src={project.image}
           alt={project.title}
-          className="w-full h-full object-cover hover:scale-110 transition-transform duration-500"
+          className="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
         />
 
-        {/* In Progress Badge */}
         {!project.status && (
           <div className="absolute top-3 right-3 bg-yellow-500/90 text-black text-xs px-3 py-1 rounded-full flex items-center gap-1">
             <Clock size={14} />
@@ -113,15 +151,17 @@ const ProjectCard = ({ project }) => {
       </div>
 
       {/* Content */}
-      <div className="p-5 flex flex-col gap-3">
-        <h3 className="text-xl font-semibold text-white">{project.title}</h3>
+      <div className="p-4 sm:p-5 flex flex-col gap-3">
+        <h3 className="text-lg sm:text-xl font-semibold text-white">
+          {project.title}
+        </h3>
 
-        <p className="text-gray-400 text-sm leading-relaxed">
+        <p className="text-gray-400 text-sm leading-relaxed line-clamp-4">
           {project.description}
         </p>
 
         {/* Tech Stack */}
-        <div className="flex flex-wrap gap-2 mt-2">
+        <div className="flex flex-wrap gap-2 mt-1">
           {project.tech.map((tech, index) => (
             <span
               key={index}
@@ -133,7 +173,7 @@ const ProjectCard = ({ project }) => {
         </div>
 
         {/* Footer */}
-        <div className="mt-4">
+        <div className="mt-3">
           {project.status ? (
             <div className="flex flex-wrap gap-4">
               {project.github && (

@@ -5,6 +5,7 @@ import {
 
 import "react-vertical-timeline-component/style.min.css";
 import { educationpng } from "../assets/index.js";
+
 const Education = () => {
   const educationTimeline = [
     {
@@ -39,9 +40,21 @@ const Education = () => {
   return (
     <section
       id="education"
-      className="w-full bg-[#020617] text-white flex flex-col items-center px-6 py-20"
+      className="
+        w-full
+        bg-[#020617]
+        text-white
+        flex
+        flex-col
+        items-center
+        px-4 sm:px-6
+        py-16 sm:py-20
+      "
     >
-      <h2 className="text-4xl font-bold mb-10">Education</h2>
+      {/* Heading */}
+      <h2 className="text-3xl sm:text-4xl font-bold mb-8 sm:mb-10">
+        Education
+      </h2>
 
       <VerticalTimeline>
         {educationTimeline.map((education, index) => (
@@ -62,29 +75,36 @@ const EducationCard = ({ education }) => {
       contentArrowStyle={{ borderRight: "7px solid #232631" }}
       date={education.duration}
       iconStyle={{ background: "white" }}
-       icon={
-        <div className='flex justify-center items-center w-full h-full'>
+      icon={
+        <div className="flex justify-center items-center w-full h-full">
           <img
             src={educationpng}
             alt={education.level}
-            className='w-[60%] h-[60%] object-contain'
+            className="
+              w-[55%] h-[55%]
+              sm:w-[60%] sm:h-[60%]
+              object-contain
+            "
           />
         </div>
       }
     >
-      <h3 className="text-white text-[22px] font-bold">
+      {/* Title */}
+      <h3 className="text-white text-[18px] sm:text-[22px] font-bold">
         {education.level}
       </h3>
 
-      <p className="text-gray-300 text-[16px] font-semibold mt-1">
+      {/* Institute */}
+      <p className="text-gray-300 text-[14px] sm:text-[16px] font-semibold mt-1">
         {education.institute}
       </p>
 
-      <ul className="mt-4 list-disc ml-5 space-y-2">
+      {/* Points */}
+      <ul className="mt-3 sm:mt-4 list-disc ml-4 sm:ml-5 space-y-2">
         {education.points.map((point, index) => (
           <li
             key={index}
-            className="text-gray-200 text-[14px] tracking-wide"
+            className="text-gray-200 text-[13px] sm:text-[14px] tracking-wide"
           >
             {point}
           </li>
